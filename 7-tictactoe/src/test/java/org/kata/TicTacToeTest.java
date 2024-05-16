@@ -11,4 +11,12 @@ public class TicTacToeTest {
         var state = game.state();
         assertThat(state.player()).isEqualTo(Player.X);
     }
+
+    @Test
+    public void switch_turns() {
+        var game = new TicTacToe();
+        game.place();
+        var state = game.state();
+        assertThat(state.player()).isEqualTo(Player.O);
+    }
 }
