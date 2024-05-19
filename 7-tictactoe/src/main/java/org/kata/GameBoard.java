@@ -36,13 +36,18 @@ public class GameBoard {
                 checkCells(Cell.TopRight, Cell.MiddleRight, Cell.BottomRight);
     }
 
+    private boolean checkDiagonal() {
+        return checkCells(Cell.TopLeft, Cell.MiddleCenter, Cell.BottomRight) ||
+                checkCells(Cell.TopRight, Cell.MiddleCenter, Cell.BottomLeft);
+    }
+
     private boolean checkCells(Cell first, Cell second, Cell third) {
         return (board.containsKey(first) && board.containsKey(second) && board.containsKey(third)) &&
                 (board.get(first) == board.get(second) && board.get(second) == board.get(third));
     }
 
     public void updateState() {
-        if (checkHorizontal() || checkVertical()) {
+        if (checkHorizontal() || checkVertical() || checkDiagonal()) {
             state = GameState.State.Winner;
         }
     }

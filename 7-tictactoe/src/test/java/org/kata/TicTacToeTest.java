@@ -54,6 +54,15 @@ public class TicTacToeTest {
         assertThat(state).isEqualTo(GameState.winner(Player.X));
     }
 
+    @ParameterizedTest
+    @MethodSource("diagonalMovements")
+    public void a_player_wins_when_it_has_three_squares_in_a_row_diagonal(List<Cell> cells) {
+        var game = new TicTacToe();
+        cells.forEach(game::placeMarker);
+        var state = game.state();
+        assertThat(state).isEqualTo(GameState.winner(Player.X));
+    }
+
     private static Stream<Arguments> horizontalMovements() {
         return Stream.of(
                 Arguments.of(
@@ -113,6 +122,29 @@ public class TicTacToeTest {
                                 Cell.MiddleRight,
                                 Cell.MiddleCenter,
                                 Cell.BottomRight
+                        )
+                )
+        );
+    }
+
+    private static Stream<Arguments> diagonalMovements() {
+        return Stream.of(
+                Arguments.of(
+                        List.of(
+                                Cell.TopLeft,
+                                Cell.TopRight,
+                                Cell.MiddleCenter,
+                                Cell.BottomLeft,
+                                Cell.BottomRight
+                        )
+                ),
+                Arguments.of(
+                        List.of(
+                                Cell.TopRight,
+                                Cell.TopLeft,
+                                Cell.MiddleCenter,
+                                Cell.BottomRight,
+                                Cell.BottomLeft
                         )
                 )
         );
