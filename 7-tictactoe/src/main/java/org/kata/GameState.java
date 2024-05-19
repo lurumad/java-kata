@@ -13,6 +13,10 @@ public record GameState(Player player, State state) {
         return new GameState(player, state);
     }
 
+    public static GameState draw(Player player) {
+        return new GameState(player, State.Draw);
+    }
+
     public enum State {
         OnGoing,
         Draw,

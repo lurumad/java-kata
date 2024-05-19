@@ -46,10 +46,18 @@ public class GameBoard {
                 (board.get(first) == board.get(second) && board.get(second) == board.get(third));
     }
 
-    public void updateState() {
+    private void updateState() {
         if (checkHorizontal() || checkVertical() || checkDiagonal()) {
             state = GameState.State.Winner;
+            return;
         }
+        if (isFull()){
+            state = GameState.State.Draw;
+        }
+    }
+
+    private boolean isFull() {
+        return board.size() == 9;
     }
 
     public GameState.State gameState() {

@@ -63,6 +63,14 @@ public class TicTacToeTest {
         assertThat(state).isEqualTo(GameState.winner(Player.X));
     }
 
+    @ParameterizedTest
+    @MethodSource("gameDraw")
+    public void if_all_nine_squares_are_filled_and_neither_player_has_won_the_game_is_a_draw(List<Cell> cells) {
+        var game = new TicTacToe();
+        cells.forEach(game::placeMarker);
+        assertThat(game.state()).isEqualTo(GameState.draw(Player.X));
+    }
+
     private static Stream<Arguments> horizontalMovements() {
         return Stream.of(
                 Arguments.of(
@@ -145,6 +153,24 @@ public class TicTacToeTest {
                                 Cell.MiddleCenter,
                                 Cell.BottomRight,
                                 Cell.BottomLeft
+                        )
+                )
+        );
+    }
+
+    private static Stream<Arguments> gameDraw() {
+        return Stream.of(
+                Arguments.of(
+                        List.of(
+                                Cell.TopRight,
+                                Cell.TopCenter,
+                                Cell.TopLeft,
+                                Cell.MiddleCenter,
+                                Cell.MiddleLeft,
+                                Cell.MiddleRight,
+                                Cell.BottomCenter,
+                                Cell.BottomLeft,
+                                Cell.BottomRight
                         )
                 )
         );

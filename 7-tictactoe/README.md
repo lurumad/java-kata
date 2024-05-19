@@ -2,16 +2,16 @@
 
 ## Rules
 
-- [ ] The game is played on a grid that's 3 squares by 3 squares
-- [ ] Players alternate placing X’s and O’s in empty squares
+- [x] The game is played on a grid that's 3 squares by 3 squares
+- [x] Players alternate placing X’s and O’s in empty squares
 - [x] X always plays first
 - [x] Switch turns
 - [x] Players cannot play on a played square
 - A Player wins when it has three squares in a row
-  - [ ] Horizontally
-  - [ ] Vertically
-  - [ ] Diagonally
-- If all nine squares are filled and neither player has won, the game is a draw
+  - [x] Horizontally
+  - [x] Vertically
+  - [x] Diagonally
+- [ ] If all nine squares are filled and neither player has won, the game is a draw
 
 ## Folow TDD rules stryctly
 
