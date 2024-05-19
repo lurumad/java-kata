@@ -1,5 +1,7 @@
 package org.kata;
 
+import static org.kata.GameState.State.OnGoing;
+
 public class TicTacToe {
     private Player currentPlayer;
     private final GameBoard board;
@@ -10,12 +12,14 @@ public class TicTacToe {
     }
 
     public GameState state() {
-        return new GameState(currentPlayer);
+        return GameState.from(currentPlayer, board.gameState());
     }
 
     public void placeMarker(Cell cell) {
         board.placeMarker(cell, currentPlayer);
-        switchTurn();
+        if (board.gameState() == OnGoing) {
+            switchTurn();
+        }
     }
 
     private void switchTurn() {
