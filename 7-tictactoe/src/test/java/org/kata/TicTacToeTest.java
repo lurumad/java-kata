@@ -45,6 +45,15 @@ public class TicTacToeTest {
         assertThat(state).isEqualTo(GameState.winner(Player.X));
     }
 
+    @ParameterizedTest
+    @MethodSource("verticalMovements")
+    public void a_player_wins_when_it_has_three_squares_in_a_row_vertically(List<Cell> cells) {
+        var game = new TicTacToe();
+        cells.forEach(game::placeMarker);
+        var state = game.state();
+        assertThat(state).isEqualTo(GameState.winner(Player.X));
+    }
+
     private static Stream<Arguments> horizontalMovements() {
         return Stream.of(
                 Arguments.of(
@@ -70,6 +79,38 @@ public class TicTacToeTest {
                                 Cell.BottomLeft,
                                 Cell.MiddleLeft,
                                 Cell.BottomCenter,
+                                Cell.MiddleCenter,
+                                Cell.BottomRight
+                        )
+                )
+        );
+    }
+
+    private static Stream<Arguments> verticalMovements() {
+        return Stream.of(
+                Arguments.of(
+                        List.of(
+                                Cell.TopLeft,
+                                Cell.TopRight,
+                                Cell.MiddleLeft,
+                                Cell.MiddleCenter,
+                                Cell.BottomLeft
+                        )
+                ),
+                Arguments.of(
+                        List.of(
+                                Cell.TopCenter,
+                                Cell.BottomLeft,
+                                Cell.MiddleCenter,
+                                Cell.BottomRight,
+                                Cell.BottomCenter
+                        )
+                ),
+                Arguments.of(
+                        List.of(
+                                Cell.TopRight,
+                                Cell.MiddleLeft,
+                                Cell.MiddleRight,
                                 Cell.MiddleCenter,
                                 Cell.BottomRight
                         )
