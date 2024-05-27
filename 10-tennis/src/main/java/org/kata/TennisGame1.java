@@ -17,15 +17,13 @@ public class TennisGame1 implements TennisGame {
 	}
 
 	public String getScore() {
-			String score = "";
-
-			if (gameIsDraw())
+        if (gameIsDraw())
 			{
 				return calculateDrawScore();
 			}
 
 			if (gameIsWin()) {
-				return caculateWin();
+				return calculateWin();
 			}
 
 			if (gameIsAdvantage())
@@ -33,7 +31,7 @@ public class TennisGame1 implements TennisGame {
 				return calculateAdvantage();
 			}
 
-			return calculateScore(score);
+			return calculateScore();
 	}
 
 	private String calculateAdvantage() {
@@ -47,7 +45,7 @@ public class TennisGame1 implements TennisGame {
 		return null;
 	}
 
-	private String caculateWin() {
+	private String calculateWin() {
 		int scoreDifference = player1Score - player2Score;
 		if (scoreDifference>=2) {
 			return "Win for player1";
@@ -55,7 +53,7 @@ public class TennisGame1 implements TennisGame {
 		return "Win for player2";
 	}
 
-	private String calculateScore(String score) {
+	private String calculateScore() {
         return calculateCurrent(player1Score) + "-" + calculateCurrent(player2Score);
 	}
 
