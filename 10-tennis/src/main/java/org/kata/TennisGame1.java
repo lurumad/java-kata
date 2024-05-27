@@ -24,6 +24,15 @@ public class TennisGame1 implements TennisGame {
 				return calculateDrawScore();
 			}
 
+			if (gameIsWin()) {
+				int scoreDifference = player1Score - player2Score;
+				if (scoreDifference>=2) {
+					return "Win for player1";
+				}
+				return "Win for player2";
+
+			}
+
 			if (gameIsAdvantageOrWin())
 			{
                 int scoreDifference = player1Score - player2Score;
@@ -33,10 +42,6 @@ public class TennisGame1 implements TennisGame {
 				if (scoreDifference ==-1) {
 					return "Advantage player2";
 				}
-				if (scoreDifference>=2) {
-					return "Win for player1";
-				}
-				return "Win for player2";
 			}
 
 			return calculateScore(score);
