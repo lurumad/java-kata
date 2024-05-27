@@ -25,26 +25,34 @@ public class TennisGame1 implements TennisGame {
 			}
 
 			if (gameIsWin()) {
-				int scoreDifference = player1Score - player2Score;
-				if (scoreDifference>=2) {
-					return "Win for player1";
-				}
-				return "Win for player2";
-
+				return caculateWin();
 			}
 
 			if (gameIsAdvantage())
 			{
-                int scoreDifference = player1Score - player2Score;
-				if (scoreDifference==1) {
-					return "Advantage player1";
-				}
-				if (scoreDifference ==-1) {
-					return "Advantage player2";
-				}
+				return calculateAdvantage();
 			}
 
 			return calculateScore(score);
+	}
+
+	private String calculateAdvantage() {
+		int scoreDifference = player1Score - player2Score;
+		if (scoreDifference==1) {
+			return "Advantage player1";
+		}
+		if (scoreDifference ==-1) {
+			return "Advantage player2";
+		}
+		return null;
+	}
+
+	private String caculateWin() {
+		int scoreDifference = player1Score - player2Score;
+		if (scoreDifference>=2) {
+			return "Win for player1";
+		}
+		return "Win for player2";
 	}
 
 	private String calculateScore(String score) {
