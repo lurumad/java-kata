@@ -63,6 +63,10 @@ public class TennisGame1 implements TennisGame {
 		return score;
 	}
 
+	private boolean gameIsWin() {
+		return (player1Score >= 4 || player2Score >= 4) && Math.abs(player1Score - player2Score) >= 2;
+	}
+
 	private boolean gameIsAdvantageOrWin() {
 		return player1Score >= 4 || player2Score >= 4;
 	}
