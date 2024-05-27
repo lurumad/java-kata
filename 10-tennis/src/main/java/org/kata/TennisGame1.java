@@ -48,22 +48,17 @@ public class TennisGame1 implements TennisGame {
 	}
 
 	private String calculateScore(String score) {
-        return calculateCurrent(score, player1Score) + "-" + calculateCurrent(score, player2Score);
+        return calculateCurrent(player1Score) + "-" + calculateCurrent(player2Score);
 	}
 
-	private static String calculateCurrent(String score, int tempScore) {
-		switch(tempScore)
-		{
-				case 0:
-						return "Love";
-				case 1:
-						return "Fifteen";
-				case 2:
-						return "Thirty";
-            	case 3:
-						return "Forty";
-		}
-		return score;
+	private static String calculateCurrent(int playerScore) {
+        return switch (playerScore) {
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            case 3 -> "Forty";
+            default -> "";
+        };
 	}
 
 	private boolean gameIsWin() {
