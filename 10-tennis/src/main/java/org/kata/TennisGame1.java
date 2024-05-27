@@ -20,9 +20,9 @@ public class TennisGame1 implements TennisGame {
 			String score = "";
 			int tempScore;
 
-			if (player1Score == player2Score)
+			if (gameIsDraw())
 			{
-				score = calculateEqualScore();
+				return calculateEqualScore();
 			}
 			else if (player1Score >=4 || player2Score >=4)
 			{
@@ -56,6 +56,10 @@ public class TennisGame1 implements TennisGame {
 					}
 			}
 			return score;
+	}
+
+	private boolean gameIsDraw() {
+		return player1Score == player2Score;
 	}
 
 	private String calculateEqualScore() {
