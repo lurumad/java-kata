@@ -33,7 +33,7 @@ public class TennisGame1 implements TennisGame {
 
 			}
 
-			if (gameIsAdvantageOrWin())
+			if (gameIsAdvantage())
 			{
                 int scoreDifference = player1Score - player2Score;
 				if (scoreDifference==1) {
@@ -82,8 +82,8 @@ public class TennisGame1 implements TennisGame {
 		return (player1Score >= 4 || player2Score >= 4) && Math.abs(player1Score - player2Score) >= 2;
 	}
 
-	private boolean gameIsAdvantageOrWin() {
-		return player1Score >= 4 || player2Score >= 4;
+	private boolean gameIsAdvantage() {
+		return player1Score >= 4 || player2Score >= 4 && Math.abs(player1Score - player2Score) == 1;
 	}
 
 	private boolean gameIsDraw() {
