@@ -26,7 +26,13 @@ public class TennisGame1 implements TennisGame {
 
 			if (gameIsAdvantageOrWin())
 			{
-				return calculateAdvantageOrWin();
+				String score1;
+				int scoreDifference = player1Score - player2Score;
+				if (scoreDifference==1) score1 ="Advantage player1";
+				else if (scoreDifference ==-1) score1 ="Advantage player2";
+				else if (scoreDifference>=2) score1 = "Win for player1";
+				else score1 ="Win for player2";
+				return score1;
 			}
 
 			return calculateScore(score);
@@ -69,16 +75,6 @@ public class TennisGame1 implements TennisGame {
 
 	private boolean gameIsAdvantageOrWin() {
 		return player1Score >= 4 || player2Score >= 4;
-	}
-
-	private String calculateAdvantageOrWin() {
-		String score;
-		int scoreDifference = player1Score - player2Score;
-		if (scoreDifference==1) score ="Advantage player1";
-		else if (scoreDifference ==-1) score ="Advantage player2";
-		else if (scoreDifference>=2) score = "Win for player1";
-		else score ="Win for player2";
-		return score;
 	}
 
 	private boolean gameIsDraw() {
