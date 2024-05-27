@@ -26,13 +26,17 @@ public class TennisGame1 implements TennisGame {
 
 			if (gameIsAdvantageOrWin())
 			{
-				String score1;
-				int scoreDifference = player1Score - player2Score;
-				if (scoreDifference==1) score1 ="Advantage player1";
-				else if (scoreDifference ==-1) score1 ="Advantage player2";
-				else if (scoreDifference>=2) score1 = "Win for player1";
-				else score1 ="Win for player2";
-				return score1;
+                int scoreDifference = player1Score - player2Score;
+				if (scoreDifference==1) {
+					return "Advantage player1";
+				}
+				if (scoreDifference ==-1) {
+					return "Advantage player2";
+				}
+				if (scoreDifference>=2) {
+					return "Win for player1";
+				}
+				return "Win for player2";
 			}
 
 			return calculateScore(score);
