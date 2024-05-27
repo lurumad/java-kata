@@ -18,7 +18,6 @@ public class TennisGame1 implements TennisGame {
 
 	public String getScore() {
 			String score = "";
-			int tempScore;
 
 			if (gameIsDraw())
 			{
@@ -30,28 +29,39 @@ public class TennisGame1 implements TennisGame {
 			}
 			else
 			{
-					for (int i=1; i<3; i++)
-					{
-							if (i==1) tempScore = player1Score;
-							else { score+="-"; tempScore = player2Score;}
-							switch(tempScore)
-							{
-									case 0:
-											score+="Love";
-											break;
-									case 1:
-											score+="Fifteen";
-											break;
-									case 2:
-											score+="Thirty";
-											break;
-									case 3:
-											score+="Forty";
-											break;
-							}
-					}
+				return calculateScore(score);
 			}
-			return score;
+	}
+
+	private String calculateScore(String score) {
+		int tempScore;
+		for (int i=1; i<3; i++)
+		{
+				if (i==1) {
+					tempScore = player1Score;
+				}
+				else {
+					score +="-";
+					tempScore = player2Score;
+				}
+
+				switch(tempScore)
+				{
+						case 0:
+								score +="Love";
+								break;
+						case 1:
+								score +="Fifteen";
+								break;
+						case 2:
+								score +="Thirty";
+								break;
+						case 3:
+								score +="Forty";
+								break;
+				}
+		}
+		return score;
 	}
 
 	private boolean gameIsAdvantageOrWin() {
