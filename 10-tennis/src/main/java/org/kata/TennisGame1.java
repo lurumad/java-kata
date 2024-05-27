@@ -22,15 +22,11 @@ public class TennisGame1 implements TennisGame {
 
 			if (gameIsDraw())
 			{
-				return calculateEqualScore();
+				return calculateDrawScore();
 			}
-			else if (player1Score >=4 || player2Score >=4)
+			else if (gameIsAdvantageOrWin())
 			{
-					int scoreDifference = player1Score - player2Score;
-					if (scoreDifference==1) score ="Advantage player1";
-					else if (scoreDifference ==-1) score ="Advantage player2";
-					else if (scoreDifference>=2) score = "Win for player1";
-					else score ="Win for player2";
+				return calculateAdvantageOrWin();
 			}
 			else
 			{
@@ -58,11 +54,25 @@ public class TennisGame1 implements TennisGame {
 			return score;
 	}
 
+	private boolean gameIsAdvantageOrWin() {
+		return player1Score >= 4 || player2Score >= 4;
+	}
+
+	private String calculateAdvantageOrWin() {
+		String score;
+		int scoreDifference = player1Score - player2Score;
+		if (scoreDifference==1) score ="Advantage player1";
+		else if (scoreDifference ==-1) score ="Advantage player2";
+		else if (scoreDifference>=2) score = "Win for player1";
+		else score ="Win for player2";
+		return score;
+	}
+
 	private boolean gameIsDraw() {
 		return player1Score == player2Score;
 	}
 
-	private String calculateEqualScore() {
+	private String calculateDrawScore() {
 		return switch (player1Score) {
             case 0 -> "Love-All";
             case 1 -> "Fifteen-All";
