@@ -23,14 +23,13 @@ public class TennisGame1 implements TennisGame {
 			{
 				return calculateDrawScore();
 			}
-			else if (gameIsAdvantageOrWin())
+
+			if (gameIsAdvantageOrWin())
 			{
 				return calculateAdvantageOrWin();
 			}
-			else
-			{
-				return calculateScore(score);
-			}
+
+			return calculateScore(score);
 	}
 
 	private String calculateScore(String score) {
