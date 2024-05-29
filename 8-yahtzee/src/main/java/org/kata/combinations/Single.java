@@ -4,8 +4,14 @@ import org.kata.Combination;
 import org.kata.Dice;
 import org.kata.Roll;
 
-public class Ones implements Combination {
+public class Single implements Combination {
+    private final Dice dice;
+
+    public Single(Dice dice) {
+        this.dice = dice;
+    }
+
     public int score(Roll roll) {
-        return roll.sum(Dice.One);
+        return roll.sum(dice);
     }
 }

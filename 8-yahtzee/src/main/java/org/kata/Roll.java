@@ -1,6 +1,6 @@
 package org.kata;
 
-import java.util.Iterator;
+import java.util.Arrays;
 
 public class Roll {
     private final Dice [] dices;
@@ -10,12 +10,9 @@ public class Roll {
     }
 
     public int sum(Dice dice) {
-        int sum = 0;
-        for (Dice d : dices) {
-            if (d == dice) {
-                sum += dice.value();
-            }
-        }
-        return sum;
+        return Arrays.stream(dices)
+                .filter(d -> d == dice)
+                .mapToInt(d -> dice.value())
+                .sum();
     }
 }
