@@ -6,5 +6,5 @@ public enum Category {
     Threes,
     Fours,
     Fives,
-    Sixes
+    Pair, Sixes
 }

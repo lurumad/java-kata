@@ -31,6 +31,14 @@ public class YahtzeeTest {
         assertEquals(exception.getMessage(), YahtzeeException.playerCannotAssignToAlreadyAssignedCategory);
     }
 
+    @Test
+    public void the_player_scores_the_sum_of_the_two_highest_matching_dice() {
+        var game = Yahtzee.start();
+        var roll = new Roll(Dice.Two, Dice.Two, Dice.Three, Dice.Three, Dice.Six);
+        var score = game.place(roll, Category.Pair);
+        assertThat(score).isEqualTo(6);
+    }
+
     private static Stream<Arguments> singleCombinations() {
         return Stream.of(
                 Arguments.of(

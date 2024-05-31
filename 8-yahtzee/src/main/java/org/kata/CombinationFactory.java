@@ -1,5 +1,6 @@
 package org.kata;
 
+import org.kata.combinations.Pair;
 import org.kata.combinations.Single;
 
 import java.util.HashMap;
@@ -13,6 +14,7 @@ public class CombinationFactory {
             put(Category.Fours, new Single(Dice.Four));
             put(Category.Fives, new Single(Dice.Five));
             put(Category.Sixes, new Single(Dice.Six));
+            put(Category.Pair, new Pair());
         }
     };
 
