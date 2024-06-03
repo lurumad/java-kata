@@ -26,7 +26,6 @@ public class YahtzeeTest {
     public void player_cannot_assign_to_already_assigned_category() {
         var game = Yahtzee.start();
         var roll = new Roll(Dice.Two, Dice.Two, Dice.Three, Dice.Five, Dice.Six);
-        var score = game.place(roll, Category.Twos);
         var exception = assertThrows(YahtzeeException.class, () -> game.place(roll, Category.Twos));
         assertEquals(exception.getMessage(), YahtzeeException.playerCannotAssignToAlreadyAssignedCategory);
     }
