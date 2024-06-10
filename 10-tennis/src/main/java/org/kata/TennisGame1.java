@@ -1,5 +1,10 @@
 package org.kata;
 
+import org.kata.scores.AdvantageScore;
+import org.kata.scores.DrawScore;
+import org.kata.scores.OnGoingScore;
+import org.kata.scores.WinScore;
+
 import java.util.Objects;
 
 public class TennisGame1 implements TennisGame {
