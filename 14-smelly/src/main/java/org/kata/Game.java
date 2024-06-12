@@ -14,9 +14,7 @@ public class Game {
         //if first move
         validateFirstMove(symbol);
         //if not first move but player repeated
-        if (symbol == _lastSymbol) {
-            throw new Exception("Invalid next player");
-        }
+        validateAlternatePlayer(symbol);
         //if not first move but play on an already played tile
         // Inappropriate Intimacy
         // Message Chains
@@ -27,6 +25,12 @@ public class Game {
         // update game state
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
+    }
+
+    private void validateAlternatePlayer(char symbol) throws Exception {
+        if (symbol == _lastSymbol) {
+            throw new Exception("Invalid next player");
+        }
     }
 
     private void validateFirstMove(char symbol) throws Exception {
