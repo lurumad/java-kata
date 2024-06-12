@@ -19,13 +19,13 @@ public class Game {
             }
         }
         //if not first move but player repeated
-        else if (symbol == _lastSymbol) {
+        if (symbol == _lastSymbol) {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
         // Inappropriate Intimacy
         // Message Chains
-        else if (_board.TileAt(x, y).Symbol != ' ') {
+        if (_board.TileAt(x, y).Symbol != ' ') {
             throw new Exception("Invalid position");
         }
 
