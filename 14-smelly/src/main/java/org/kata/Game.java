@@ -9,15 +9,8 @@ public class Game {
     // Primitive Obsession (char, int, int)
     // Long method
     public void Play(char symbol, int x, int y) throws Exception {
-        // Comments
-        // Switch statement
-        //if first move
         validateFirstMove(symbol);
-        //if not first move but player repeated
         validateAlternatePlayer(symbol);
-        //if not first move but play on an already played tile
-        // Inappropriate Intimacy
-        // Message Chains
         validatePosition(x, y);
 
         // update game state
