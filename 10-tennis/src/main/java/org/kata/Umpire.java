@@ -1,2 +1,4 @@
-package org.kata;public class Umpire {
+package org.kata;
+
+public class Umpire {
 }

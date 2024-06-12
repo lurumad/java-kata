@@ -1,4 +1,4 @@
-package org.kata;
+package org.kata.scores;
 
 public class WinScore extends Score {
 
@@ -7,7 +7,7 @@ public class WinScore extends Score {
     }
 
     @Override
-    String text() {
+    public String text() {
         int scoreDifference = player1Score - player2Score;
         if (scoreDifference >= 2) {
             return "Win for player1";

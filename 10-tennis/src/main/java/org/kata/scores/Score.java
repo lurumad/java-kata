@@ -1,4 +1,4 @@
-package org.kata;
+package org.kata.scores;
 
 public abstract class Score {
     protected final int player1Score;

@@ -1,5 +1,15 @@
 package org.kata;
 
+<<<<<<< HEAD
+=======
+import org.kata.scores.AdvantageScore;
+import org.kata.scores.DrawScore;
+import org.kata.scores.OnGoingScore;
+import org.kata.scores.WinScore;
+
+import java.util.Objects;
+
+>>>>>>> ff1b0ba (refactor: replace conditional with polymorphism)
 public class TennisGame1 implements TennisGame {
 
 	private int m_score1 = 0;

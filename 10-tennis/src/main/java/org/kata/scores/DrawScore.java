@@ -1,4 +1,4 @@
-package org.kata;
+package org.kata.scores;
 
 public class DrawScore extends Score {
 
@@ -7,7 +7,7 @@ public class DrawScore extends Score {
     }
 
     @Override
-    String text() {
+    public String text() {
         return switch (player1Score) {
             case 0 -> "Love-All";
             case 1 -> "Fifteen-All";

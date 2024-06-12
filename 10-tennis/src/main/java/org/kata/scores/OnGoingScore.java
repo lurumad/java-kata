@@ -1,4 +1,4 @@
-package org.kata;
+package org.kata.scores;
 
 public class OnGoingScore extends Score {
     public OnGoingScore(int player1Score, int player2Score) {
@@ -6,7 +6,7 @@ public class OnGoingScore extends Score {
     }
 
     @Override
-    String text() {
+    public String text() {
         return onGoing(player1Score) + "-" + onGoing(player2Score);
     }
 
