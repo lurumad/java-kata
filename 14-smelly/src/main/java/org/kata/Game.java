@@ -18,13 +18,17 @@ public class Game {
         //if not first move but play on an already played tile
         // Inappropriate Intimacy
         // Message Chains
-        if (_board.TileAt(x, y).Symbol != ' ') {
-            throw new Exception("Invalid position");
-        }
+        validatePosition(x, y);
 
         // update game state
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
+    }
+
+    private void validatePosition(int x, int y) throws Exception {
+        if (_board.TileAt(x, y).Symbol != ' ') {
+            throw new Exception("Invalid position");
+        }
     }
 
     private void validateAlternatePlayer(char symbol) throws Exception {
