@@ -12,8 +12,10 @@ public class Game {
         validateFirstMove(symbol);
         validateAlternatePlayer(symbol);
         validatePosition(x, y);
+        updateGameState(symbol, x, y);
+    }
 
-        // update game state
+    private void updateGameState(char symbol, int x, int y) {
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
     }
