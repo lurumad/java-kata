@@ -6,7 +6,7 @@ import java.util.List;
 public class RaidService {
 
     public List<Raid> getRaidsByGuildMember(GuildMember other) {
-        GuildMember player = GuildDao.findActivePlayer();
+        GuildMember player = findActivePlayer();
 
         if (player == null) {
             throw new NullPointerException();
@@ -17,6 +17,10 @@ public class RaidService {
         }
 
         return new ArrayList<>();
+    }
+
+    protected GuildMember findActivePlayer() {
+        return GuildDao.findActivePlayer();
     }
 }
 

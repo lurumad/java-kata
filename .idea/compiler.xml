@@ -15,12 +15,15 @@
         <module name="smelly" />
         <module name="esa-mars-rover" />
         <module name="gilded-rose" />
+        <module name="katacombs" />
+        <module name="character_copier" />
         <module name="roman" />
         <module name="chareacter_copier" />
         <module name="fizzbuzz" />
         <module name="yahtzee" />
         <module name="tennis" />
         <module name="golf" />
+        <module name="social-network" />
         <module name="tic-tac-toe" />
         <module name="raid" />
       </profile>
