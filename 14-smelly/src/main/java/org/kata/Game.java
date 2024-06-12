@@ -12,12 +12,7 @@ public class Game {
         // Comments
         // Switch statement
         //if first move
-        if (_lastSymbol == ' ') {
-            //if player is X
-            if (symbol == 'O') {
-                throw new Exception("Invalid first player");
-            }
-        }
+        validateFirstMove(symbol);
         //if not first move but player repeated
         if (symbol == _lastSymbol) {
             throw new Exception("Invalid next player");
@@ -32,6 +27,15 @@ public class Game {
         // update game state
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
+    }
+
+    private void validateFirstMove(char symbol) throws Exception {
+        if (_lastSymbol == ' ') {
+            //if player is X
+            if (symbol == 'O') {
+                throw new Exception("Invalid first player");
+            }
+        }
     }
 
     // Long method
