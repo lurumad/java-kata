@@ -7,9 +7,6 @@ public class Game {
     private char _lastSymbol = EMPTY;
     private Board _board = new Board();
 
-    // Data clumps (x, y)
-    // Primitive Obsession (char, int, int)
-    // Long method
     public void Play(char symbol, int x, int y) throws Exception {
         validateFirstMove(symbol);
         validateAlternatePlayer(symbol);
@@ -45,46 +42,30 @@ public class Game {
     // Long method
     // Primitive obsession
     public char Winner() {
-        //if the positions in first row are taken
-        // Inappropriate Intimacy
-        // Feature Envy
-        if (_board.TileAt(0, 0).Symbol != EMPTY &&
-                _board.TileAt(0, 1).Symbol != EMPTY &&
-                _board.TileAt(0, 2).Symbol != EMPTY) {
-            //if first row is full with same symbol
-            if (_board.TileAt(0, 0).Symbol ==
-                    _board.TileAt(0, 1).Symbol &&
-                    _board.TileAt(0, 2).Symbol == _board.TileAt(0, 1).Symbol) {
-                return _board.TileAt(0, 0).Symbol;
-            }
-        }
+        var winnerFirstRow = winnerOnRow(0);
+        if (winnerFirstRow != null) return winnerFirstRow;
 
-        //if the positions in first row are taken
-        if (_board.TileAt(1, 0).Symbol != EMPTY &&
-                _board.TileAt(1, 1).Symbol != EMPTY &&
-                _board.TileAt(1, 2).Symbol != EMPTY) {
-            //if middle row is full with same symbol
-            if (_board.TileAt(1, 0).Symbol ==
-                    _board.TileAt(1, 1).Symbol &&
-                    _board.TileAt(1, 2).Symbol ==
-                            _board.TileAt(1, 1).Symbol) {
-                return _board.TileAt(1, 0).Symbol;
-            }
-        }
+        Character winnerSecondRow = winnerOnRow(1);
+        if (winnerSecondRow != null) return winnerSecondRow;
 
-        //if the positions in first row are taken
-        if (_board.TileAt(2, 0).Symbol != EMPTY &&
-                _board.TileAt(2, 1).Symbol != EMPTY &&
-                _board.TileAt(2, 2).Symbol != EMPTY) {
-            //if middle row is full with same symbol
-            if (_board.TileAt(2, 0).Symbol ==
-                    _board.TileAt(2, 1).Symbol &&
-                    _board.TileAt(2, 2).Symbol ==
-                            _board.TileAt(2, 1).Symbol) {
-                return _board.TileAt(2, 0).Symbol;
-            }
-        }
+        Character winnerThirdRow = winnerOnRow(2);
+        if (winnerThirdRow != null) return winnerThirdRow;
 
         return EMPTY;
+    }
+
+    private Character winnerOnRow(int x) {
+        // Feature envy
+        if (_board.TileAt(x, 0).Symbol != EMPTY &&
+                _board.TileAt(x, 1).Symbol != EMPTY &&
+                _board.TileAt(x, 2).Symbol != EMPTY) {
+            //if first row is full with same symbol
+            if (_board.TileAt(x, 0).Symbol ==
+                    _board.TileAt(x, 1).Symbol &&
+                    _board.TileAt(x, 2).Symbol == _board.TileAt(x, 1).Symbol) {
+                return _board.TileAt(x, 0).Symbol;
+            }
+        }
+        return null;
     }
 }
