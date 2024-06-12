@@ -3,6 +3,7 @@ package org.kata;
 // Large class
 public class Game {
     public static final char EMPTY = ' ';
+    public static final char PLAYER_O = 'O';
     private char _lastSymbol = EMPTY;
     private Board _board = new Board();
 
@@ -35,8 +36,7 @@ public class Game {
 
     private void validateFirstMove(char symbol) throws Exception {
         if (_lastSymbol == EMPTY) {
-            //if player is X
-            if (symbol == 'O') {
+            if (symbol == PLAYER_O) {
                 throw new Exception("Invalid first player");
             }
         }
