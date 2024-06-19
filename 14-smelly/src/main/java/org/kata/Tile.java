@@ -1,6 +1,5 @@
 package org.kata;
 
-// Data clumps (X, Y)
 public class Tile
 {
     private final Coordinates coordinates;

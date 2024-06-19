@@ -7,11 +7,11 @@ public class Game {
     private char _lastSymbol = EMPTY;
     private final Board _board = new Board();
 
-    public void Play(char symbol, int x, int y) throws Exception {
+    public void Play(char symbol, Coordinates coordinates) throws Exception {
         validateFirstMove(symbol);
         validateAlternatePlayer(symbol);
-        validatePosition(x, y);
-        updateGameState(symbol, x, y);
+        validatePosition(coordinates);
+        updateGameState(symbol, coordinates);
     }
 
     private void validateFirstMove(char symbol) throws Exception {
@@ -28,15 +28,15 @@ public class Game {
         }
     }
 
-    private void validatePosition(int x, int y) throws Exception {
-        if (_board.TileAt(x, y).isNotEmpty()) {
+    private void validatePosition(Coordinates coordinates) throws Exception {
+        if (_board.TileAt(coordinates).isNotEmpty()) {
             throw new Exception("Invalid position");
         }
     }
 
-    private void updateGameState(char symbol, int x, int y) {
+    private void updateGameState(char symbol, Coordinates coordinates) {
         _lastSymbol = symbol;
-        _board.AddTileAt(symbol, x, y);
+        _board.AddTileAt(symbol, coordinates);
     }
 
     public char Winner() {

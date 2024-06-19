@@ -18,32 +18,28 @@ public class Board
         }
     }
 
-    // Primitive Obsession
-    // Data clumps (x, y)
-    public Tile TileAt(int x, int y)
+    public Tile TileAt(Coordinates coordinates)
     {
         for (Tile t : _plays) {
-            if (t.sameCoordinates(new Tile(new Coordinates(x, y)))) {
+            if (t.sameCoordinates(new Tile(coordinates))) {
                 return t;
             }
         }
         return null;
     }
 
-    // Primitive Obsession
-    // Data clumps (symbol, x, y)
-    public void AddTileAt(char symbol, int x, int y)
+    public void AddTileAt(char symbol, Coordinates coordinates)
     {
-        TileAt(x,y).setSymbol(symbol);
+        TileAt(coordinates).setSymbol(symbol);
     }
 
     public Character winnerOnRow(int x) {
-        if (TileAt(x, 0).isNotEmpty() &&
-                TileAt(x, 1).isNotEmpty() &&
-                TileAt(x, 2).isNotEmpty()) {
-            if (TileAt(x, 0).isSameSymbol(TileAt(x, 1)) &&
-                    TileAt(x, 2).isSameSymbol(TileAt(x, 1))) {
-                return TileAt(x, 0).getSymbol();
+        if (TileAt(new Coordinates(x, 0)).isNotEmpty() &&
+                TileAt(new Coordinates(x, 1)).isNotEmpty() &&
+                TileAt(new Coordinates(x, 2)).isNotEmpty()) {
+            if (TileAt(new Coordinates(x, 0)).isSameSymbol(TileAt(new Coordinates(x, 1))) &&
+                    TileAt(new Coordinates(x, 2)).isSameSymbol(TileAt(new Coordinates(x, 1)))) {
+                return TileAt(new Coordinates(x, 0)).getSymbol();
             }
         }
         return null;
