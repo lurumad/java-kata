@@ -3,11 +3,11 @@ package org.kata;
 public class Tile
 {
     private final Coordinates coordinates;
-    private char symbol;
+    private Player player;
 
     public Tile(Coordinates coordinates) {
         this.coordinates = coordinates;
-        this.symbol = ' ';
+        this.player = Player.NONE;
     }
 
     public boolean sameCoordinates(Tile tile) {
@@ -15,7 +15,7 @@ public class Tile
     }
 
     public boolean isEmpty() {
-        return this.symbol == ' ';
+        return this.player == Player.NONE;
     }
 
     public boolean isNotEmpty() {
@@ -23,14 +23,34 @@ public class Tile
     }
 
     public boolean isSameSymbol(Tile tile) {
-        return this.symbol == tile.symbol;
+        return this.player == tile.player;
     }
 
     public void setSymbol(char symbol) {
-        this.symbol = symbol;
+        this.player = fromChar(symbol);
     }
 
     public char getSymbol() {
-        return this.symbol;
+        return toChar(this.player);
+    }
+
+    public static Player fromChar(char symbol) {
+        if (symbol == 'X') {
+            return Player.X;
+        }
+        if (symbol == 'O') {
+            return Player.O;
+        }
+        return Player.NONE;
+    }
+
+    public static char toChar(Player player) {
+        if (player == Player.X) {
+            return 'X';
+        }
+        if (player == Player.O) {
+            return 'O';
+        }
+        return ' ';
     }
 }
