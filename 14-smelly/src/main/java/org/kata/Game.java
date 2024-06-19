@@ -38,9 +38,7 @@ public class Game {
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
     }
-
-    // Long method
-    // Primitive obsession
+    
     public char Winner() {
         for (int row = 0; row < 3; row++) {
             Character winner = _board.winnerOnRow(row);
