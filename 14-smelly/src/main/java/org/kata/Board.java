@@ -9,16 +9,11 @@ public class Board
 
     public Board()
     {
-        for (int i = 0; i < 3; i++)
+        for (int x = 0; x < 3; x++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int y = 0; y < 3; y++)
             {
-                // Inappropriate Intimacy
-                Tile tile = new Tile();
-                tile.X = i;
-                tile.Y = j;
-                tile.Symbol = ' ';
-                _plays.add(tile);
+                _plays.add(new Tile(x, y));
             }
         }
     }
