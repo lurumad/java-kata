@@ -45,11 +45,9 @@ public class Board
     }
 
     public Character winnerOnRow(int x) {
-        // Feature envy
         if (TileAt(x, 0).Symbol != Game.EMPTY &&
                 TileAt(x, 1).Symbol != Game.EMPTY &&
                 TileAt(x, 2).Symbol != Game.EMPTY) {
-            //if first row is full with same symbol
             if (TileAt(x, 0).Symbol ==
                     TileAt(x, 1).Symbol &&
                     TileAt(x, 2).Symbol == TileAt(x, 1).Symbol) {

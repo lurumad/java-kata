@@ -42,19 +42,11 @@ public class Game {
     // Long method
     // Primitive obsession
     public char Winner() {
-        var winnerFirstRow = _board.winnerOnRow(0);
-        if (winnerFirstRow != null) {
-            return winnerFirstRow;
-        }
-
-        Character winnerSecondRow = _board.winnerOnRow(1);
-        if (winnerSecondRow != null) {
-            return winnerSecondRow;
-        }
-
-        Character winnerThirdRow = _board.winnerOnRow(2);
-        if (winnerThirdRow != null) {
-            return winnerThirdRow;
+        for (int row = 0; row < 3; row++) {
+            Character winner = _board.winnerOnRow(row);
+            if (winner != null) {
+                return winner;
+            }
         }
 
         return EMPTY;
