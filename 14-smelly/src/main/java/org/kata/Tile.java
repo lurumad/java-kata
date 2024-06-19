@@ -6,29 +6,29 @@ package org.kata;
 // Data clumps (X, Y)
 public class Tile
 {
-    public int X;
-    public int Y;
+    private final int x;
+    private final int y;
     public char Symbol;
 
     public Tile() {
-        X = 0;
-        Y = 0;
+        x = 0;
+        y = 0;
         Symbol = ' ';
     }
 
     public Tile(int x, int y, char symbol) {
-        this.X = x;
-        this.Y = y;
+        this.x = x;
+        this.y = y;
         this.Symbol = symbol;
     }
 
     public Tile(int x, int y) {
-        this.X = x;
-        this.Y = y;
+        this.x = x;
+        this.y = y;
         this.Symbol = ' ';
     }
 
     public boolean sameCoordinates(Tile tile) {
-        return this.X == tile.X && this.Y == tile.Y;
+        return this.x == tile.x && this.y == tile.y;
     }
 }
