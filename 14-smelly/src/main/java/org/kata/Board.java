@@ -34,7 +34,7 @@ public class Board
     // Data clumps (symbol, x, y)
     public void AddTileAt(char symbol, int x, int y)
     {
-        TileAt(x,y).Symbol = symbol;
+        TileAt(x,y).setSymbol(symbol);
     }
 
     public Character winnerOnRow(int x) {
@@ -43,7 +43,7 @@ public class Board
                 TileAt(x, 2).isNotEmpty()) {
             if (TileAt(x, 0).isSameSymbol(TileAt(x, 1)) &&
                     TileAt(x, 2).isSameSymbol(TileAt(x, 1))) {
-                return TileAt(x, 0).Symbol;
+                return TileAt(x, 0).getSymbol();
             }
         }
         return null;

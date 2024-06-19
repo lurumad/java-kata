@@ -29,7 +29,7 @@ public class Game {
     }
 
     private void validatePosition(int x, int y) throws Exception {
-        if (_board.TileAt(x, y).Symbol != EMPTY) {
+        if (_board.TileAt(x, y).isNotEmpty()) {
             throw new Exception("Invalid position");
         }
     }
@@ -38,7 +38,7 @@ public class Game {
         _lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
     }
-    
+
     public char Winner() {
         for (int row = 0; row < 3; row++) {
             Character winner = _board.winnerOnRow(row);

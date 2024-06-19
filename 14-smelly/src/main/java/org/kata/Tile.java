@@ -8,24 +8,24 @@ public class Tile
 {
     private final int x;
     private final int y;
-    public char Symbol;
+    private char symbol;
 
     public Tile() {
         x = 0;
         y = 0;
-        Symbol = ' ';
+        symbol = ' ';
     }
 
     public Tile(int x, int y, char symbol) {
         this.x = x;
         this.y = y;
-        this.Symbol = symbol;
+        this.symbol = symbol;
     }
 
     public Tile(int x, int y) {
         this.x = x;
         this.y = y;
-        this.Symbol = ' ';
+        this.symbol = ' ';
     }
 
     public boolean sameCoordinates(Tile tile) {
@@ -33,7 +33,7 @@ public class Tile
     }
 
     public boolean isEmpty() {
-        return this.Symbol == ' ';
+        return this.symbol == ' ';
     }
 
     public boolean isNotEmpty() {
@@ -41,6 +41,14 @@ public class Tile
     }
 
     public boolean isSameSymbol(Tile tile) {
-        return this.Symbol == tile.Symbol;
+        return this.symbol == tile.symbol;
+    }
+
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
+    }
+
+    public char getSymbol() {
+        return this.symbol;
     }
 }
