@@ -28,9 +28,7 @@ public class Board
     public Tile TileAt(int x, int y)
     {
         for (Tile t : _plays) {
-            // Feature Envy
-            // Inappropriate Intimacy
-            if (t.X == x && t.Y == y){
+            if (t.sameCoordinates(new Tile(x, y))) {
                 return t;
             }
         }

@@ -22,6 +22,12 @@ public class Tile
         this.Symbol = symbol;
     }
 
+    public Tile(int x, int y) {
+        this.X = x;
+        this.Y = y;
+        this.Symbol = ' ';
+    }
+
     public boolean sameCoordinates(Tile tile) {
         return this.X == tile.X && this.Y == tile.Y;
     }
