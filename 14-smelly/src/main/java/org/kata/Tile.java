@@ -26,8 +26,8 @@ public class Tile
         return this.player == tile.player;
     }
 
-    public void setSymbol(char symbol) {
-        this.player = fromChar(symbol);
+    public void setSymbol(Player player) {
+        this.player = player;
     }
 
     public char getSymbol() {

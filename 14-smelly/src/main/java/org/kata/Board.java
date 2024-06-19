@@ -28,9 +28,9 @@ public class Board
         return null;
     }
 
-    public void AddTileAt(char symbol, Coordinates coordinates)
+    public void AddTileAt(Coordinates coordinates, Player player)
     {
-        TileAt(coordinates).setSymbol(symbol);
+        TileAt(coordinates).setSymbol(player);
     }
 
     public Character winnerOnRow(int x) {

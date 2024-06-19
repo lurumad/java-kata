@@ -2,28 +2,26 @@ package org.kata;
 
 // Large class
 public class Game {
-    public static final char EMPTY = ' ';
-    public static final char PLAYER_O = 'O';
-    private char _lastSymbol = EMPTY;
+    private Player _lastSymbol = Player.NONE;
     private final Board _board = new Board();
 
-    public void Play(char symbol, Coordinates coordinates) throws Exception {
-        validateFirstMove(symbol);
-        validateAlternatePlayer(symbol);
+    public void Play(Coordinates coordinates, Player player) throws Exception {
+        validateFirstMove(player);
+        validateAlternatePlayer(player);
         validatePosition(coordinates);
-        updateGameState(symbol, coordinates);
+        updateGameState(coordinates, player);
     }
 
-    private void validateFirstMove(char symbol) throws Exception {
-        if (_lastSymbol == EMPTY) {
-            if (symbol == PLAYER_O) {
+    private void validateFirstMove(Player player) throws Exception {
+        if (_lastSymbol == Player.NONE) {
+            if (player == Player.O) {
                 throw new Exception("Invalid first player");
             }
         }
     }
 
-    private void validateAlternatePlayer(char symbol) throws Exception {
-        if (symbol == _lastSymbol) {
+    private void validateAlternatePlayer(Player player) throws Exception {
+        if (player == _lastSymbol) {
             throw new Exception("Invalid next player");
         }
     }
@@ -34,9 +32,9 @@ public class Game {
         }
     }
 
-    private void updateGameState(char symbol, Coordinates coordinates) {
-        _lastSymbol = symbol;
-        _board.AddTileAt(symbol, coordinates);
+    private void updateGameState(Coordinates coordinates, Player player) {
+        _lastSymbol = player;
+        _board.AddTileAt(coordinates, player);
     }
 
     public char Winner() {
@@ -47,7 +45,7 @@ public class Game {
             }
         }
 
-        return EMPTY;
+        return Tile.toChar(Player.NONE);
     }
 
 }
