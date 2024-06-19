@@ -34,16 +34,6 @@ public class Tile
         return toChar(this.player);
     }
 
-    public static Player fromChar(char symbol) {
-        if (symbol == 'X') {
-            return Player.X;
-        }
-        if (symbol == 'O') {
-            return Player.O;
-        }
-        return Player.NONE;
-    }
-
     public static char toChar(Player player) {
         if (player == Player.X) {
             return 'X';
