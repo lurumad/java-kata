@@ -31,4 +31,12 @@ public class Tile
     public boolean sameCoordinates(Tile tile) {
         return this.x == tile.x && this.y == tile.y;
     }
+
+    public boolean isEmpty() {
+        return this.Symbol == ' ';
+    }
+
+    public boolean isNotEmpty() {
+        return !isEmpty();
+    }
 }

@@ -38,9 +38,9 @@ public class Board
     }
 
     public Character winnerOnRow(int x) {
-        if (TileAt(x, 0).Symbol != Game.EMPTY &&
-                TileAt(x, 1).Symbol != Game.EMPTY &&
-                TileAt(x, 2).Symbol != Game.EMPTY) {
+        if (TileAt(x, 0).isNotEmpty() &&
+                TileAt(x, 1).isNotEmpty() &&
+                TileAt(x, 2).isNotEmpty()) {
             if (TileAt(x, 0).Symbol ==
                     TileAt(x, 1).Symbol &&
                     TileAt(x, 2).Symbol == TileAt(x, 1).Symbol) {
