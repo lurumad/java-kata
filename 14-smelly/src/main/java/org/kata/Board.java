@@ -41,9 +41,8 @@ public class Board
         if (TileAt(x, 0).isNotEmpty() &&
                 TileAt(x, 1).isNotEmpty() &&
                 TileAt(x, 2).isNotEmpty()) {
-            if (TileAt(x, 0).Symbol ==
-                    TileAt(x, 1).Symbol &&
-                    TileAt(x, 2).Symbol == TileAt(x, 1).Symbol) {
+            if (TileAt(x, 0).isSameSymbol(TileAt(x, 1)) &&
+                    TileAt(x, 2).isSameSymbol(TileAt(x, 1))) {
                 return TileAt(x, 0).Symbol;
             }
         }

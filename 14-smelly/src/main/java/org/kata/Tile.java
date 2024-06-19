@@ -39,4 +39,8 @@ public class Tile
     public boolean isNotEmpty() {
         return !isEmpty();
     }
+
+    public boolean isSameSymbol(Tile tile) {
+        return this.Symbol == tile.Symbol;
+    }
 }
